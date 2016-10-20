@@ -1,0 +1,22 @@
+Materialize.toast("<%= notice %>", 5000, 'rounded orange darken-3');
+
+$('#evento_modal').closeModal();
+
+var calendario = $('#eventos_calendar');
+
+<% if metodo != 'Criar' %>
+  calendario.fullCalendar( 'removeEvents', ["<%= @evento.id %>"] );
+<% end %>
+
+<% if metodo != 'Excluir' %>
+  calendario.fullCalendar( 'renderEvent', {
+    id: '<%= @evento.id %>',
+    canal: '<%= @evento.canal %>',
+    aprovado: '<%= @evento.aprovado %>',
+    title: '<%= @evento.nome %>',
+    start: '<%= @evento.data.iso8601(10) %>',
+    end: '<%= @evento.data.iso8601(10) %>',
+    url: '<%= edit_evento_url(@evento) %>',
+    backgroundColor: '<%= @evento.cor_canal %>'
+  });
+<% end %>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calendario</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+
+    <header>
+      <nav>
+        <div class="row nav-wrapper">
+          <div class="col s12">
+            <a href="#" class="brand-logo">Agenda</a>
+            <ul id="nav-mobile" class="right">
+              <li>
+                <%= link_to 'Novo'.html_safe, new_evento_path, remote:true, class:"waves-effect" %>
+              </li>
+
+              <li>
+                <button data-target="impressao_modal" class="btn modal-trigger">Modal</button>
+              </li>
+              <li>
+
+                <%#= link_to '<i class="material-icons">print</i>'.html_safe, new_evento_path, class:"waves-effect" %>
+                <%= link_to '<i class="material-icons">print</i>'.html_safe, eventos_path(format: 'pdf', ano: 2016, meses_array: [9,10]), target: "_blank" %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div id="impressao_modal" class="modal"> <%= render partial: 'impressao_modal' %> </div>
+      <%= yield %>
+    </div>
+  </body>
+</html>

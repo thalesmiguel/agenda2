@@ -2,8 +2,43 @@
 $primary-color: color("teal", "base") !default;
 $secondary-color: color("orange", "darken-3") !default;
 // $input-focus-color: $primary-color !default;
+// Predefined Break-points
+
+$mediaMaxWidth: 1260px;
+$mediaBp1Width: 960px;
+$mediaMinWidth: 480px;
 
 @import 'materialize';
+
+@media only screen and (min-width: $mediaMinWidth){
+  html {
+      font-size: 8px !important;
+  }
+  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 100px !important;
+    line-height: 100px !important;
+  }
+}
+
+@media only screen and (min-width: $mediaBp1Width){
+  html {
+      font-size: 11px !important;
+  }
+  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 50px !important;
+    line-height: 50px !important;
+  }
+}
+
+@media only screen and (min-width: $mediaMaxWidth){
+  html {
+      font-size: 14px !important;
+  }
+  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 64px !important;
+    line-height: 64px !important;
+  }
+}
 
 @media only screen and (max-width: 2160px) {
   .container {
@@ -472,4 +507,8 @@ $secondary-color: color("orange", "darken-3") !default;
 .f-700
 {
     font-weight: 700!important;
+}
+
+.mes-select ul {
+  max-height: 350px;
 }

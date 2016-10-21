@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013193312) do
+ActiveRecord::Schema.define(version: 20161011135107) do
 
   create_table "cidades", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nome"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20161013193312) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "admin",                  default: 0
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_usuarios_on_email", unique: true, using: :btree

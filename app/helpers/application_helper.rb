@@ -6,4 +6,15 @@ module ApplicationHelper
     end
   end
 
+  def checa_administrador?
+    if signed_in?
+      raise 'Não é Administrador!' unless current_usuario.administrador?
+    end
+  end
+
+  def checa_pode_incluir?
+    if signed_in?
+      raise 'Não pode Incluir!' unless current_usuario.administrador?
+    end
+  end
 end

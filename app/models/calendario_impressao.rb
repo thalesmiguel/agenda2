@@ -12,7 +12,8 @@ class CalendarioImpressao
   end
 
   def mes_ano_por_extenso
-    Date.new(ano.to_i, mes.to_i, 1).strftime('%B').to_s + "/" + ano.to_s
+    # I18n.t Date.new(ano.to_i, mes.to_i, 1).strftime('%B').to_s + "/" + ano.to_s
+    I18n.l(Date.new(ano.to_i, mes.to_i, 1), format: "%B") + "/" + ano
   end
 
   def lista

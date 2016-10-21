@@ -45,4 +45,8 @@ class Evento < ApplicationRecord
     data.day
   end
 
+  def descricao_completa
+    "(" + hora_formatada + ") " + nome + (cidade.nome != 'Virtual' ? " - " + cidade.nome + "/" + cidade.estado.sigla : '' )
+  end
+
 end

@@ -8,36 +8,39 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
   <body>
+    <nav>
+      <div class="nav-wrapper">
+        <%= link_to "Agenda", root_path, class:"brand-logo p-l-15" %>
 
-    <header>
-      <nav>
-        <div class="row nav-wrapper">
-          <div class="col s12">
-            <a href="#" class="brand-logo">Agenda</a>
-            <ul id="nav-mobile" class="right">
-              <li>
-                <%= link_to 'Novo'.html_safe, new_evento_path, remote:true, class:"waves-effect" %>
-              </li>
+          <% if usuario_signed_in? %>
 
-              <li>
-                <button data-target="impressao_modal" class="btn modal-trigger">Modal</button>
-              </li>
-              <li>
+          <ul class="right">
+            <% if usuario_signed_in? %>
+              <li> <%= link_to('Sair', destroy_usuario_session_path, :method => :delete) %> </li>
+            <% end %>
+          </ul>
 
-                <%#= link_to '<i class="material-icons">print</i>'.html_safe, new_evento_path, class:"waves-effect" %>
-                <%= link_to '<i class="material-icons">print</i>'.html_safe, eventos_path(format: 'pdf', ano: 2016, meses_array: [9,10]), target: "_blank" %>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+          <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><%= link_to '<i class="material-icons">account_circle</i>'.html_safe, usuarios_path, class:"waves-effect" if current_usuario.administrador? %></li>
+            <li><%= link_to '<i class="material-icons">add</i>'.html_safe, new_evento_path, remote:true, class:"waves-effect" if current_usuario.pode_incluir? %></li>
+            <li><a data-target="impressao_modal" class="modal-trigger"><i class="material-icons">print</i></a></li>
+          </ul>
+          <ul class="side-nav" id="mobile-menu">
+            <li><%= link_to 'Usuários', usuarios_path, class:"waves-effect" if current_usuario.administrador? %></li>
+            <li class="center"><%= link_to 'Novo'.html_safe, new_evento_path, remote:true, class:"waves-effect" if current_usuario.pode_incluir? %></li>
+            <li><a data-target="impressao_modal" class="center modal-trigger">Imprimir</a></li>
+          </ul>
+        <% end %>
+      </div>
+    </nav>
 
     <div class="container">
-      <div id="impressao_modal" class="modal"> <%= render partial: 'impressao_modal' %> </div>
+      <div id="impressao_modal" class="modal"> <%= render partial: 'eventos/impressao_modal' %> </div>
       <%= yield %>
     </div>
   </body>

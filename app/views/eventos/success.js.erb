@@ -12,7 +12,7 @@ var calendario = $('#eventos_calendar');
   calendario.fullCalendar( 'renderEvent', {
     id: '<%= @evento.id %>',
     canal: '<%= @evento.canal %>',
-    aprovado: '<%= @evento.aprovado %>',
+    aprovado: <%= @evento.aprovado %>,
     title: '<%= @evento.nome %>',
     start: '<%= @evento.data.iso8601(10) %>',
     end: '<%= @evento.data.iso8601(10) %>',

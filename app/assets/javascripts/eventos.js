@@ -20,6 +20,8 @@ $(document).on('turbolinks:load', function() {
       listWeek: { titleFormat: "DD/MM/YYYY", listDayFormat: "dddd, D/M/Y", listDayAltFormat: false }},
     eventRender: function(event, element) {
       element.attr("data-remote",true);
+      console.log(event)
+      if (event.aprovado == true) {element.find(".fc-content").append("<i class='material-icons fc-icon'>check</i>")};
       $(".fc-button").addClass("waves-effect");
     }
   });

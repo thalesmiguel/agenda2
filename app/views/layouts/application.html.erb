@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Calendario</title>
+    <title>Agenda Central</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,36 +12,48 @@
   </head>
 
   <body>
-    <nav>
-      <div class="nav-wrapper">
-        <%= link_to "Agenda<span class='smaller'>Central</span>".html_safe, root_path, class:"brand-logo p-l-15" %>
+    <header>
 
-          <% if usuario_signed_in? %>
+      <nav>
+        <div class="nav-wrapper">
+          <%= link_to "Agenda<span class='smaller'>Central</span>".html_safe, root_path, class:"brand-logo p-l-15" %>
 
-          <ul class="right">
             <% if usuario_signed_in? %>
-              <li> <%= link_to('Sair', destroy_usuario_session_path, :method => :delete) %> </li>
-            <% end %>
-          </ul>
 
-          <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><%= link_to '<i class="material-icons">account_circle</i>'.html_safe, usuarios_path, class:"waves-effect" if current_usuario.administrador? %></li>
-            <li><%= link_to '<i class="material-icons">add</i>'.html_safe, new_evento_path, remote:true, class:"waves-effect" if current_usuario.pode_incluir? %></li>
-            <li><a data-target="impressao_modal" class="modal-trigger"><i class="material-icons">print</i></a></li>
-          </ul>
-          <ul class="side-nav" id="mobile-menu">
-            <li><%= link_to 'Usuários', usuarios_path, class:"waves-effect" if current_usuario.administrador? %></li>
-            <li class="center"><%= link_to 'Novo'.html_safe, new_evento_path, remote:true, class:"waves-effect" if current_usuario.pode_incluir? %></li>
-            <li><a data-target="impressao_modal" class="center modal-trigger">Imprimir</a></li>
-          </ul>
-        <% end %>
+            <ul class="right">
+              <% if usuario_signed_in? %>
+                <li> <%= link_to('Sair', destroy_usuario_session_path, :method => :delete) %> </li>
+              <% end %>
+            </ul>
+
+            <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><%= link_to '<i class="material-icons">account_circle</i>'.html_safe, usuarios_path, class:"waves-effect" if current_usuario.administrador? %></li>
+              <li><%= link_to '<i class="material-icons">add</i>'.html_safe, new_evento_path, remote:true, class:"waves-effect" if current_usuario.pode_incluir? %></li>
+              <li><a data-target="impressao_modal" class="modal-trigger"><i class="material-icons">print</i></a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-menu">
+              <li><%= link_to 'Usuários', usuarios_path, class:"waves-effect" if current_usuario.administrador? %></li>
+              <li class="center"><%= link_to 'Novo'.html_safe, new_evento_path, remote:true, class:"waves-effect" if current_usuario.pode_incluir? %></li>
+              <li><a data-target="impressao_modal" class="center modal-trigger">Imprimir</a></li>
+            </ul>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <div id="impressao_modal" class="modal"> <%= render partial: 'eventos/impressao_modal' %> </div>
+        <%= yield %>
       </div>
-    </nav>
-
-    <div class="container">
-      <div id="impressao_modal" class="modal"> <%= render partial: 'eventos/impressao_modal' %> </div>
-      <%= yield %>
-    </div>
+    </main>
+    <footer class="page-footer p-t-0">
+      <div class="footer-copyright">
+        <div class="container">
+        © 2016 Thales Miguel
+        <a class="grey-text text-lighten-4 right" href="http://centralleiloes.com.br">Central Leilões</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

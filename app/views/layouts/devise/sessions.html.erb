@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Calendario</title>
+    <title>Agenda Central</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,8 +12,21 @@
   </head>
 
   <body class="small-sidebar">
-    <div class="container">
-      <%= yield %>
-    </div>
+    <header>
+    </header>
+    <main>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
+    <footer class="page-footer p-t-0 footer-login">
+      <div class="footer-copyright">
+        <div class="container">
+        © 2016 Thales Miguel
+        <a class="grey-text text-lighten-4 right" href="http://centralleiloes.com.br">Central Leilões</a>
+        </div>
+      </div>
+    </footer>
   </body>
+
 </html>

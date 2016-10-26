@@ -1,17 +1,12 @@
 class EventosController < ApplicationController
   before_action :set_evento, only: [:show, :edit, :update, :destroy]
 
-  include ThinreportsHelper
-
   def index
     @eventos = Evento.all
 
     respond_to do |format|
       format.html
       format.json
-      format.pdf do
-        send_data imprimir_calendario('calendario', params[:ano], params[:meses_array], @eventos), filename: 'calendario.pdf', type: 'application/pdf', disposition: 'inline'
-      end
     end
   end
 

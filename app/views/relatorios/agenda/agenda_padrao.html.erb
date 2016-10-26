@@ -1,0 +1,29 @@
+<div hidden id="json">
+  <%= @eventos_json %>
+</div>
+
+<% @meses.each do |mes| %>
+
+  <div class="alwaysbreak">
+    <div class="right">
+      <table class="legenda">
+        <tbody>
+          <tr>
+            <td class="feriado"> Feriado </td>
+            <td class="agro-canal"> Agro Canal </td>
+            <td class="canal-do-boi"> Canal do Boi </td>
+            <td class="canal-rural"> Canal Rural </td>
+          </tr>
+          <tr>
+            <td class="aprovado"> Aprovado </td>
+            <td class="novo-canal"> Novo Canal </td>
+            <td class="terra-viva"> Terra Viva </td>
+            <td class="sem-transmissao"> Sem Transmissao </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="eventos_impressao_calendar", data-mes= <%= mes %> data-ano= <%= @ano %>></div>
+  </div>
+
+<% end %>

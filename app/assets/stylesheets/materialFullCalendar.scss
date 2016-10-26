@@ -22,6 +22,8 @@
   margin-left: 0 !important;
 }
 
+.fc-other-month .fc-day-number { display:none;}
+
 .fc-day-grid-event, .fc-h-event, .fc-event, .fc-start, .fc-end {
 
   position: relative;
@@ -41,10 +43,15 @@
 .fc-title {
   display: block;
   padding-top: 0.1em;
+  font-weight: normal !important;
 }
 
 .fc-event-container {
-  padding-bottom: 0.3em !important;
+  padding-bottom: 0 !important;
+}
+
+.fc-day-grid-event, .fc-h-event, .fc-event, .fc-start, .fc-end {
+  margin: 0.3rem 0.3rem 0rem 0 !important;
 }
 
 // waves-effect waves-light btn
@@ -305,4 +312,18 @@ Colors: Use the following - https://www.google.com/design/spec/style/color.html#
   position: absolute;
   right: 0.1em;
   bottom: 0.1em;
+}
+
+.fc-widget-content {
+  min-height: 10em !important;
+  height: auto !important;
+}
+
+.fc-day-grid-container {
+  height: 100% !important;
+  padding-bottom: 3em !important;
+}
+
+.fc-head {
+  border-bottom: 0 !important;
 }

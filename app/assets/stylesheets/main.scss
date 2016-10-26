@@ -1,3 +1,10 @@
 @media (max-width: 800px) {
   .modal { overflow: auto !important }
 }
+
+.smaller {
+  font-size: 18px;
+  font-weight: 100;
+  letter-spacing: 5px;
+  margin-left: 8px;
+}

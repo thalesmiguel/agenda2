@@ -18,4 +18,6 @@
 //= require fullcalendar
 //= require fullcalendar/pt-br
 
-//= require_tree .
+//= require cable
+//= require main
+//= require eventos

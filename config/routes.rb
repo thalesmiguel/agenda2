@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   get 'eventos/update_cidades', as: 'update_cidades'
   resources :eventos
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'relatorios/agenda_padrao', to: 'relatorios#agenda_padrao', defaults: {format: 'json'}
+  get 'imprimir_agenda', to: 'relatorios#imprimir_agenda', defaults: {format: 'pdf'}
+
 end

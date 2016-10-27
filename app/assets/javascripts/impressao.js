@@ -16,7 +16,7 @@ $(document).on('ready', function() {
     var calendario = $(this);
     calendario.fullCalendar({
       locale: 'pt-br',
-      timeFormat: "H[h](mm[min])",
+      timeFormat: "(H[h])(mm[min])",
       events: eventos,
       titleFormat: "MMMM/YYYY",
       displayEventTime: true, // Display event time

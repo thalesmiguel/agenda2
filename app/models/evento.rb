@@ -9,7 +9,8 @@ class Evento < ApplicationRecord
     :canal_rural,
     :novo_canal,
     :terra_viva,
-    :sem_transmissao
+    :sem_transmissao,
+    :feriado
   ]
 
   enum cor_canal: [
@@ -18,7 +19,8 @@ class Evento < ApplicationRecord
     "#795548",
     "#e91e63",
     "#ff9800",
-    "#9e9e9e"
+    "#9e9e9e",
+    "#7b1fa2"
   ]
 
   def estado

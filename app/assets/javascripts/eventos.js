@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function() {
 
   $('#eventos_calendar').fullCalendar({
     locale: 'pt-br',
-    timeFormat: "H[h](mm[min])",
+    timeFormat: "(H[h])(mm[min])",
     events: '/eventos.json',
     titleFormat: "MMMM/YYYY",
 

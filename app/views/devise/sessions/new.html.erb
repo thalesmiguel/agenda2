@@ -10,10 +10,6 @@
 			</div>
 		</div>
 		<div class="inputs">
-
-
-
-
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="input-field">
           <%= f.email_field :email, autofocus: true, class: "validate", required: {required: ""}, aria: {required: "true"} %>
@@ -34,7 +30,7 @@
 <script type="text/javascript">
 	$(document).on("ready", function(){
 		Materialize.toast('<%= content_tag(:div, flash[:error], id: 'flash_error') if flash[:error] %>', 4000, 'yellow darken-2');
-		Materialize.toast('<%= content_tag(:div, flash[:notice], id: 'flash_notice') if flash[:notice] %>', 4000, 'orange darken-2');
+		Materialize.toast('<%= content_tag(:div, flash[:notice], id: 'flash_notice') if flash[:notice] %>', 4000, 'green darken-2');
 		Materialize.toast('<%= content_tag(:div, flash[:alert], id: 'flash_alert') if flash[:alert] %>', 4000, 'red darken-2');
 	});
 </script>

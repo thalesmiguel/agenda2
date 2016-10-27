@@ -17,6 +17,7 @@
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/pt-br
+//= require mousetrap.min
 
 //= require cable
 //= require main

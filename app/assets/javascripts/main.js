@@ -18,6 +18,12 @@ $(document).on('turbolinks:load', function(){
   $('select').material_select();
   $(".button-collapse").sideNav();
   $("select[required]").css({display: "block", height: 0, padding: 0, width: 0, position: 'absolute'});
+
+  // Mouse Trap
+  Mousetrap.bind(['command+p', 'ctrl+p'], function(e) {
+    $('a[data-target="impressao_modal"]').click();
+    return false;
+  });
 });
 
 $(function() {

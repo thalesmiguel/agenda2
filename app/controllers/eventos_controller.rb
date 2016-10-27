@@ -6,7 +6,9 @@ class EventosController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json
+      format.json do
+        current_usuario.admin != 0 ? (render file: "eventos/index.json.jbuilder") : (render file: "eventos/index_sem_url.json.jbuilder")
+      end
     end
   end
 

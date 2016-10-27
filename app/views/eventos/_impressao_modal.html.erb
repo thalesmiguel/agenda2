@@ -4,18 +4,18 @@
     <%= form_tag(imprimir_agenda_path, method: :get, target: "_blank", format: "pdf") do %>
       <%= hidden_field_tag :format, :pdf %>
 
-      <div class="input-field col s12 m4">
+      <div class="input-field col s12 m5">
         <%= select_tag :ano, options_for_select([["2015", "2015"], ["2016", "2016", {selected:true}], ["2017", "2017"]]) %>
         <%= label_tag(:ano, "Ano:") %>
       </div>
 
-      <div class="input-field col s12 m4">
+      <div class="input-field col s12 m5">
         <%= select_tag :meses, options_for_select([["Escolha os meses", "", {disabled: true}], ["Janeiro", "1"], ["Fevereiro", "2"], ["Março", "3"], ["Abril", "4"], ["Maio", "5"],
                                                          ["Junho", "5"], ["Julho", "6"], ["Agosto", "7"], ["Setembro", "9"], ["Outubro", "10"],
                                                          ["Novembro", "11"], ["Dezembro", "12"]]), {multiple:true, class:"mes-select validade", required: 'true'}  %>
         <%= label_tag(:meses, "Mês:") %>
       </div>
-      <div class="input-field col s12 m4">
+      <div class="input-field col s12 m2">
         <button class="btn waves-effect waves-light" type="submit" name="action">Imprimir</button>
       </div>
     <% end %>

@@ -13,6 +13,7 @@
 <table class="bordered highlight">
   <thead>
     <tr>
+      <th>Usuário</th>
       <th>Email</th>
       <th>Admin</th>
       <th>Opções</th>
@@ -22,6 +23,7 @@
   <tbody>
     <% @usuarios.each do |usuario| %>
       <tr>
+        <td> <%= usuario.username %> </td>
         <td> <%= usuario.email %> </td>
         <td> <%= usuario.admin %> </td>
         <td>

@@ -18,13 +18,13 @@ $(document).on('turbolinks:load', function() {
       month: { titleFormat: "MMMM/YYYY" },
       basicWeek: { titleFormat: "DD/MM/YYYY" },
       listWeek: { titleFormat: "DD/MM/YYYY", listDayFormat: "dddd, D/M/Y", listDayAltFormat: false }},
+    viewRender: function(view, element) {
+      $(".fc-button").addClass("waves-effect");
+    },
     eventRender: function(event, element, view) {
       element.attr("data-remote",true);
       element.find("a").attr("data-remote",true);
-      // console.log(event)
       if (event.aprovado == true) {element.find(".fc-content").append("<i class='material-icons fc-icon'>check</i>")};
-
-      $(".fc-button").addClass("waves-effect");
 
       var eventDate = event.start;
       var calendarDate = $('#eventos_calendar').fullCalendar('getDate');

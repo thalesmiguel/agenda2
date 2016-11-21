@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20161011135107) do
   end
 
   create_table "usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "username",                            null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20161011135107) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
+    t.index ["username"], name: "index_usuarios_on_username", unique: true, using: :btree
   end
 
   add_foreign_key "cidades", "estados"

@@ -1,23 +1,9 @@
-// $(document).on('turbolinks:load', function() {
-//
-//   $('button').removeClass("fc-state-hover fc-prev-button fc-state-default fc-corner-left fc-corner-right");
-//
-//   $(document).on("mouseover", "button", function(){
-//     $('button').removeClass("fc-state-hover fc-prev-button fc-state-default fc-corner-left fc-corner-right");
-//   });
-//
-//   setTimeout(function(){
-//     $(".fc-row.fc-week.fc-widget-content").removeAttr("style").attr("style", "min-height:10em");
-//     $(".fc-scroller.fc-day-grid-container").attr("style", "height:100%");
-//   }, 100);
-//
-// });
-
 $(document).on('turbolinks:load', function(){
   $('.modal-trigger').leanModal();
   $('select').material_select();
   $(".button-collapse").sideNav();
   $("select[required]").css({display: "block", height: 0, padding: 0, width: 0, position: 'absolute'});
+  $(".dropdown-button").dropdown();
 
   // Mouse Trap
   Mousetrap.bind(['command+p', 'ctrl+p'], function(e) {

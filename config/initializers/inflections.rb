@@ -140,4 +140,7 @@ inflect.singular /^([a-zA-z]*)aos$/i, '\1ao'
 # inflect.singular /^(ox)en/i, '\1'
 # inflect.irregular 'person', 'people'
 # inflect.uncountable %w( fish sheep )
+
+
+inflect.irregular 'observacao', 'observacoes'
 end

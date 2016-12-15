@@ -2,6 +2,7 @@ class RelatoriosController < ApplicationController
 
   def imprimir_agenda
     @eventos = Evento.all
+    @observacoes = Observacao.all
     @eventos_json = render_to_string( template: 'relatorios/agenda/agenda_padrao.json.jbuilder', locals: { eventos: @eventos }, exclude: 'url')
     @ano = params['ano']
     @meses = params['meses']

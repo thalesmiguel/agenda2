@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :observacoes
   root to: "eventos#index"
 
   devise_for :usuarios, controllers: { sessions: 'usuarios/sessions', registrations: "registrations" }

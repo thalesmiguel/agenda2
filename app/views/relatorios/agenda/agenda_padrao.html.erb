@@ -24,6 +24,13 @@
       </table>
     </div>
     <div id="eventos_impressao_calendar", data-mes= <%= mes %> data-ano= <%= @ano %>></div>
-  </div>
 
+    <% @observacoes.each do |observacao| %>
+      <% if observacao.ano.to_i == @ano.to_i && observacao.mes.to_i == mes.to_i %>
+        <p class="f-10">
+          <%= observacao.descricao %>
+        </p>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>

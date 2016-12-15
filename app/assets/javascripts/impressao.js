@@ -29,7 +29,7 @@ $(document).on('ready', function() {
         }
       },
       eventAfterAllRender: function(view){
-        $("#eventos_impressao_calendar[data-mes='" + mes + "'][data-ano='" + ano + "']").fullCalendar('gotoDate', new Date(2016, mes-1));
+        $("#eventos_impressao_calendar[data-mes='" + mes + "'][data-ano='" + ano + "']").fullCalendar('gotoDate', new Date(ano, mes-1));
       }
     });
   });

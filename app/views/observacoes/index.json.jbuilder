@@ -1,0 +1,1 @@
+json.array! @observacoes, partial: 'observacoes/observacao', as: :observacao

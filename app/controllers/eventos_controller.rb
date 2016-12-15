@@ -20,7 +20,6 @@ class EventosController < ApplicationController
   end
 
   def edit
-    @evento = Evento.find(params[:id])
     @estados = Estado.all
     @cidades = Cidade.where("estado_id = ?", @evento.cidade.estado_id)
     render_modal

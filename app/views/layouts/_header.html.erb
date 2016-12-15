@@ -18,6 +18,7 @@
       <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><%= link_to '<i class="material-icons">add</i>'.html_safe, new_evento_path, remote:true, class:"waves-effect" if current_usuario.pode_incluir? %></li>
+        <li><%= link_to '<i class="material-icons">alarm_on</i>'.html_safe, new_observacao_path, remote:false, class:"waves-effect" if current_usuario.pode_incluir? %></li>
         <li><a data-target="impressao_modal" class="modal-trigger"><i class="material-icons">print</i></a></li>
       </ul>
       <ul class="side-nav" id="mobile-menu">

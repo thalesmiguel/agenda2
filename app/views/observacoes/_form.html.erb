@@ -1,0 +1,32 @@
+<%= form_for(observacao) do |f| %>
+  <% if observacao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(observacao.errors.count, "error") %> prohibited this observacao from being saved:</h2>
+
+      <ul>
+      <% observacao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %>
+    <%= f.text_field :descricao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ano %>
+    <%= f.text_field :ano %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mes %>
+    <%= f.text_field :mes %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Salvar" %>
+  </div>
+<% end %>
